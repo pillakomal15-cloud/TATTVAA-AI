@@ -1,585 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TATTVA AI | Intelligent Applications</title>
+    <title>TATTVA AI | Discover Intelligence</title>
 
-<meta name="description" content="TATTVA AI is a unified platform showcasing intelligent applications in deep learning, computer vision, NLP, OCR, and predictive analytics.">
+    <meta name="description"
+          content="Explore TATTVA AI, a collection of five interactive artificial intelligence and machine learning projects.">
 
-<style>
-:root {
-    --bg: #080c16;
-    --panel: #101827;
-    --border: #243249;
-    --text: #f4f7fb;
-    --muted: #a3b2c7;
-    --teal: #36e0c0;
-    --purple: #a78bfa;
-}
+    <meta name="theme-color" content="#080d1b">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-html {
-    scroll-behavior: smooth;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-}
+    <style>
+        :root {
+            --background: #080d1b;
+            --surface: #10182b;
+            --surface-light: #151f36;
+            --text: #f5f7ff;
+            --muted: #a4afc6;
+            --teal: #43ead0;
+            --purple: #a78bfa;
+            --border: rgba(255, 255, 255, 0.10);
+        }
 
-a {
-    transition: 0.2s ease;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 8%;
-    border-bottom: 1px solid var(--border);
-    background: rgba(8, 12, 22, 0.96);
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.logo {
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-decoration: none;
-    color: var(--text);
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-.logo span {
-    color: var(--teal);
-}
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-nav {
-    display: flex;
-    gap: 25px;
-}
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
 
-nav a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-}
+        /* NAVIGATION */
 
-nav a:hover {
-    color: var(--teal);
-}
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 13, 27, 0.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
 
-.hero {
-    padding: 110px 8% 95px;
-    text-align: center;
-    background:
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(54, 224, 192, 0.13),
-            transparent 62%
-        );
-}
+        nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-.badge {
-    display: inline-block;
-    padding: 7px 15px;
-    border: 1px solid #285d59;
-    border-radius: 30px;
-    color: var(--teal);
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    margin-bottom: 27px;
-}
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
 
-.hero h1 {
-    font-size: clamp(42px, 7vw, 76px);
-    line-height: 1.12;
-    margin-bottom: 25px;
-    letter-spacing: -2px;
-}
+        .logo span {
+            color: var(--teal);
+        }
 
-.gradient {
-    background: linear-gradient(90deg, var(--teal), var(--purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
 
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    color: var(--muted);
-    font-size: 17px;
-}
+        .nav-links a:hover {
+            color: var(--teal);
+        }
 
-.hero-buttons {
-    margin-top: 35px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+        .nav-button {
+            padding: 10px 17px;
+            border: 1px solid rgba(67, 234, 208, 0.5);
+            border-radius: 10px;
+            color: var(--teal);
+        }
 
-.button {
-    display: inline-block;
-    padding: 13px 24px;
-    border-radius: 9px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-}
+        /* HERO */
 
-.primary {
-    background: var(--teal);
-    color: #07121a;
-}
+        .hero {
+            position: relative;
+            padding: 115px 0 100px;
+            text-align: center;
+            overflow: hidden;
+        }
 
-.primary:hover {
-    background: #76f5dc;
-    transform: translateY(-2px);
-}
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            left: 50%;
+            top: -220px;
+            transform: translateX(-50%);
+            background: rgba(67, 234, 208, 0.10);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-.secondary {
-    color: var(--text);
-    border: 1px solid var(--border);
-}
+        .hero-content {
+            position: relative;
+            max-width: 850px;
+            margin: auto;
+        }
 
-.secondary:hover {
-    border-color: var(--teal);
-}
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.035);
+            border-radius: 50px;
+            padding: 8px 15px;
+            color: var(--teal);
+            font-size: 0.82rem;
+            margin-bottom: 25px;
+        }
 
-.section {
-    padding: 55px 8% 90px;
-    scroll-margin-top: 20px;
-}
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--teal);
+        }
 
-.section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 20px;
-    margin-bottom: 35px;
-}
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.8rem);
+            font-weight: 700;
+            line-height: 1.06;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
 
-.section-heading h2 {
-    font-size: 34px;
-    margin-bottom: 5px;
-}
+        .gradient-text {
+            background: linear-gradient(100deg, var(--teal), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-.section-heading p {
-    color: var(--muted);
-    font-size: 14px;
-}
+        .hero-description {
+            max-width: 650px;
+            margin: 0 auto 35px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-}
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
 
-.card {
-    background: linear-gradient(145deg, #111c2d, #0c1321);
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    padding: 27px;
-    transition: transform 0.25s, border-color 0.25s;
-    display: flex;
-    flex-direction: column;
-    min-height: 300px;
-}
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 13px 23px;
+            border-radius: 11px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: var(--teal);
-}
+        .button:hover {
+            transform: translateY(-3px);
+        }
 
-.icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 13px;
-    display: grid;
-    place-items: center;
-    font-size: 25px;
-    background: #192a3b;
-    margin-bottom: 20px;
-}
+        .button-primary {
+            color: #07121b;
+            background: var(--teal);
+            box-shadow: 0 5px 25px rgba(67, 234, 208, 0.13);
+        }
 
-.card h3 {
-    font-size: 19px;
-    margin-bottom: 11px;
-}
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.035);
+        }
 
-.card p {
-    color: var(--muted);
-    font-size: 14px;
-    flex-grow: 1;
-}
+        /* STATS */
 
-.status {
-    display: inline-block;
-    margin-top: 17px;
-    font-size: 12px;
-    font-weight: 600;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 85px;
+        }
 
-.live {
-    color: var(--teal);
-}
+        .stat {
+            padding: 23px 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.025);
+            border-radius: 15px;
+        }
 
-.pending {
-    color: #fbbf24;
-}
+        .stat-number {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--teal);
+        }
 
-.project-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--teal);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
-}
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
 
-.project-link:hover {
-    color: #ffffff;
-}
+        /* SECTION */
 
-.disabled-link {
-    color: var(--muted);
-    cursor: default;
-}
+        section {
+            scroll-margin-top: 100px;
+        }
 
-.about {
-    margin: 0 8% 85px;
-    padding: 38px;
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    background: var(--panel);
-    scroll-margin-top: 25px;
-}
+        .section-heading {
+            margin-bottom: 35px;
+        }
 
-.about h2 {
-    margin-bottom: 15px;
-    font-size: 29px;
-}
+        .section-label {
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
 
-.about p {
-    color: var(--muted);
-    max-width: 900px;
-}
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-top: 10px;
+            margin-bottom: 12px;
+        }
 
-footer {
-    padding: 30px 8%;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    color: var(--muted);
-    font-size: 13px;
-}
+        .section-description {
+            color: var(--muted);
+            max-width: 650px;
+        }
 
-@media (max-width: 950px) {
-    .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
+        /* PROJECT CARDS */
 
-@media (max-width: 600px) {
-    header {
-        padding: 18px 5%;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
+        .projects {
+            padding-bottom: 100px;
+        }
 
-    .logo {
-        font-size: 22px;
-    }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
 
-    nav {
-        gap: 15px;
-    }
+        .project-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 340px;
+            padding: 25px;
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: linear-gradient(
+                145deg,
+                rgba(21, 31, 54, 0.96),
+                rgba(12, 19, 35, 0.96)
+            );
+            transition: transform 0.25s, border-color 0.25s;
+        }
 
-    .hero {
-        padding: 75px 6% 60px;
-    }
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(67, 234, 208, 0.5);
+        }
 
-    .hero h1 {
-        letter-spacing: -1px;
-    }
+        .project-icon {
+            display: grid;
+            place-items: center;
+            width: 57px;
+            height: 57px;
+            border-radius: 15px;
+            background: rgba(67, 234, 208, 0.09);
+            border: 1px solid rgba(67, 234, 208, 0.15);
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+        }
 
-    .section {
-        padding: 40px 6% 60px;
-    }
+        .project-number {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: rgba(255, 255, 255, 0.12);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
 
-    .section-heading {
-        display: block;
-    }
+        .project-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
 
-    .section-heading h2 {
-        font-size: 29px;
-    }
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.91rem;
+            margin-bottom: 20px;
+        }
 
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
 
-    .card {
-        min-height: 270px;
-    }
+        .tag {
+            font-size: 0.72rem;
+            padding: 5px 9px;
+            color: #c4d0e7;
+            background: rgba(255, 255, 255, 0.055);
+            border-radius: 6px;
+        }
 
-    .about {
-        margin: 0 6% 55px;
-        padding: 25px;
-    }
+        .project-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
 
-    footer {
-        padding: 25px 6%;
-    }
-}
-</style>
+        .project-link span {
+            transition: transform 0.2s;
+        }
+
+        .project-link:hover span {
+            transform: translateX(5px);
+        }
+
+        /* TECHNOLOGY */
+
+        .technology {
+            padding: 75px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.018);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 20px 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 12px;
+            color: #dce4f5;
+            font-weight: 500;
+        }
+
+        .tech-item span {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            padding: 95px 0;
+        }
+
+        .about-box {
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: clamp(25px, 5vw, 50px);
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(167, 139, 250, 0.08),
+                    transparent 45%
+                ),
+                var(--surface);
+        }
+
+        .about-box p {
+            color: var(--muted);
+            max-width: 800px;
+            margin-top: 15px;
+        }
+
+        .about-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 28px;
+        }
+
+        .about-point {
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .about-point strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .about-point span {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-content p {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content,
+        .stat,
+        .project-card {
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
+        .project-card:nth-child(5) {
+            animation-delay: 0.32s;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                min-height: 68px;
+            }
+
+            .logo {
+                font-size: 1.35rem;
+            }
+
+            .nav-links {
+                gap: 12px;
+                font-size: 0.78rem;
+            }
+
+            .nav-links .nav-button {
+                padding: 7px 10px;
+            }
+
+            .hero {
+                padding: 80px 0 65px;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .stats {
+                margin-bottom: 65px;
+            }
+
+            .stat {
+                padding: 16px 6px;
+            }
+
+            .stat-number {
+                font-size: 1.4rem;
+            }
+
+            .stat-label {
+                font-size: 0.72rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                min-height: 315px;
+            }
+
+            .tech-grid {
+                gap: 10px;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <a href="#home" class="logo">TATTVA<span> AI</span></a>
+    <!-- NAVIGATION -->
 
-    <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-    </nav>
-</header>
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
 
-<main>
+                <a href="#home" class="logo">
+                    TATTVA<span> AI</span>
+                </a>
 
-<section class="hero" id="home">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#about">About</a>
 
-    <div class="badge">
-        ARTIFICIAL INTELLIGENCE · DEEP LEARNING
-    </div>
+                    <a href="#projects" class="nav-button">
+                        Explore AI
+                    </a>
+                </div>
 
-    <h1>
-        Discover Intelligence.<br>
-        <span class="gradient">Experience Innovation.</span>
-    </h1>
-
-    <p>
-        Explore intelligent applications for computer vision,
-        natural language processing, handwriting recognition,
-        and predictive analytics — all in one unified platform.
-    </p>
-
-    <div class="hero-buttons">
-        <a href="#projects" class="button primary">
-            Explore Projects ↗
-        </a>
-
-        <a href="#about" class="button secondary">
-            About TATTVA AI
-        </a>
-    </div>
-
-</section>
-
-
-<section class="section" id="projects">
-
-    <div class="section-heading">
-        <div>
-            <h2>Explore Our Projects</h2>
-            <p>
-                Five applications. Different possibilities.
-                One ecosystem.
-            </p>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <div class="project-grid">
 
-        <!-- PROJECT 1: MNIST -->
+    <main>
 
-        <article class="card">
+        <!-- HERO SECTION -->
 
-            <div class="icon">✍️</div>
+        <section class="hero" id="home">
+            <div class="container">
 
-            <h3>Handwritten Digit Recognition</h3>
+                <div class="hero-content">
 
-            <p>
-                Recognise handwritten digits from 0 to 9 using
-                a trained neural network and image-processing
-                techniques.
+                    <div class="eyebrow">
+                        <span class="status-dot"></span>
+                        Artificial Intelligence Portfolio
+                    </div>
+
+                    <h1>
+                        Discover Intelligence.<br>
+                        <span class="gradient-text">
+                            Experience Innovation.
+                        </span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Welcome to TATTVA AI, an interactive portfolio
+                        showcasing artificial intelligence, deep learning,
+                        natural language processing, computer vision,
+                        optical character recognition, and machine learning.
+                        Explore practical AI applications built to turn
+                        ideas into intelligent experiences.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="button button-primary">
+                            Explore Projects &nbsp; →
+                        </a>
+
+                        <a href="#about" class="button button-secondary">
+                            Discover TATTVA AI
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROJECT STATISTICS -->
+
+        <div class="container">
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span class="stat-number">05</span>
+                    <span class="stat-label">AI Projects</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">04+</span>
+                    <span class="stat-label">AI Application Areas</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">01</span>
+                    <span class="stat-label">Unified Portfolio</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECTS SECTION -->
+
+        <section class="projects" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Project Showcase
+                    </span>
+
+                    <h2>
+                        Explore Our <span class="gradient-text">AI Lab</span>
+                    </h2>
+
+                    <p class="section-description">
+                        Five interactive applications demonstrating
+                        different ways artificial intelligence can
+                        understand images, text, handwriting, and data.
+                        Select a project to explore its application.
+                    </p>
+
+                </div>
+
+
+                <div class="project-grid">
+
+
+                    <!-- PROJECT 1: MNIST -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">01</span>
+
+                        <div class="project-icon" aria-hidden="true">
+                            🔢
+                        </div>
+
+                        <h3>
+                            Handwritten Digit Recognition
+                        </h3>
+
+                        <p>
+                            Upload a handwritten digit and let a deep
+                            learning model analyze the image and predict
+                            the digit from 0 to 9.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">MNIST</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://deep-learning-projects-bcfjjve9ppjgsqq87mhrpy.streamlit.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open Handwritten Digit Recognition application in a new tab"
+                        >
+                            Explore Application
+                            <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 2: SENTIMENT ANALYSIS -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">02</span>
+
+                        <div class="project-icon" aria-hidden="true">
+                            💬
+                        </div>
+
+                        <h3>
+                            Sentiment Analysis NLP
+                        </h3>
+
+                        <p>
+                            Analyze written text using natural language
+                            processing to identify sentiment, helping
+                            interpret positive and negative opinions.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Transformers</span>
+                            <span class="tag">Sentiment AI</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://sentiment-analysis-nlp-wjdtqcbkkuztzqt3rrwbrt.streamlit.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open Sentiment Analysis application in a new tab"
+                        >
+                            Explore Application
+                            <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 3: IMAGE CLASSIFICATION -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">03</span>
+
+                        <div class="project-icon" aria-hidden="true">
+                            🖼️
+                        </div>
+
+                        <h3>
+                            Image Classification
+                        </h3>
+
+                        <p>
+                            Upload an image and use a pretrained deep
+                            learning model with transfer learning to
+                            identify likely objects and image categories.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Transfer Learning</span>
+                            <span class="tag">TensorFlow</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://image-classification-transfer-learning-higbjqyemytbawznrl7g3m.streamlit.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open Image Classification application in a new tab"
+                        >
+                            Explore Application
+                            <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 4: HANDWRITING OCR -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">04</span>
+
+                        <div class="project-icon" aria-hidden="true">
+                            ✍️
+                        </div>
+
+                        <h3>
+                            Handwriting-to-Text OCR
+                        </h3>
+
+                        <p>
+                            Upload an image containing handwriting and
+                            use optical character recognition to extract
+                            text into a digital format.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">OCR</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">EasyOCR</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://handwriting-to-text-ocr-hmtt6susfatku2cmlxgsb7.streamlit.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open Handwriting OCR application in a new tab"
+                        >
+                            Explore Application
+                            <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 5: STOCKSENSE AI -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">05</span>
+
+                        <div class="project-icon" aria-hidden="true">
+                            📈
+                        </div>
+
+                        <h3>
+                            StockSense AI
+                        </h3>
+
+                        <p>
+                            Explore historical stock market data,
+                            visualize technical indicators, and examine
+                            experimental machine learning forecasts.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Forecasting</span>
+                        </div>
+
+                        <a
+                            class="project-link"
+                            href="https://stocksenseai-2tirdwssetktrt9jhp55zl.streamlit.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open StockSense AI application in a new tab"
+                        >
+                            Explore Application
+                            <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- PORTFOLIO CARD -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">06</span>
+
+                        <div class="project-icon" aria-hidden="true">
+                            🧠
+                        </div>
+
+                        <h3>
+                            The Intelligence Behind AI
+                        </h3>
+
+                        <p>
+                            Explore how machine learning, deep learning,
+                            language processing, and computer vision
+                            support intelligent applications.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Artificial Intelligence</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+
+                        <a class="project-link" href="#about">
+                            Learn About TATTVA AI
+                            <span>↓</span>
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- TECHNOLOGY SECTION -->
+
+        <section class="technology" id="technology">
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Technology Stack
+                    </span>
+
+                    <h2>
+                        Built with <span class="gradient-text">AI Tools</span>
+                    </h2>
+
+                    <p class="section-description">
+                        The portfolio brings together technologies used
+                        across its individual applications.
+                    </p>
+
+                </div>
+
+
+                <div class="tech-grid">
+
+                    <div class="tech-item">
+                        <span>🐍</span>
+                        Python
+                    </div>
+
+                    <div class="tech-item">
+                        <span>🧠</span>
+                        TensorFlow
+                    </div>
+
+                    <div class="tech-item">
+                        <span>💬</span>
+                        NLP & Transformers
+                    </div>
+
+                    <div class="tech-item">
+                        <span>👁️</span>
+                        Computer Vision
+                    </div>
+
+                    <div class="tech-item">
+                        <span>📊</span>
+                        Data Analysis
+                    </div>
+
+                    <div class="tech-item">
+                        <span>🤗</span>
+                        Hugging Face
+                    </div>
+
+                    <div class="tech-item">
+                        <span>🌐</span>
+                        Streamlit
+                    </div>
+
+                    <div class="tech-item">
+                        <span>▲</span>
+                        Vercel
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+
+        <section class="about" id="about">
+            <div class="container">
+
+                <div class="about-box">
+
+                    <span class="section-label">
+                        About the Platform
+                    </span>
+
+                    <h2>
+                        Intelligence with <span class="gradient-text">Purpose</span>
+                    </h2>
+
+                    <p>
+                        TATTVA AI is an AI project portfolio designed to
+                        bring multiple intelligent applications together
+                        through one central website. The name TATTVA
+                        represents the underlying essence or fundamental
+                        principle of something.
+                    </p>
+
+                    <p>
+                        Each application demonstrates a different
+                        practical use of AI, from recognizing handwritten
+                        digits and understanding text sentiment to
+                        classifying images, extracting handwriting, and
+                        analyzing financial data.
+                    </p>
+
+                    <div class="about-points">
+
+                        <div class="about-point">
+                            <strong>🎯 Practical Learning</strong>
+                            <span>
+                                Explore AI concepts through interactive
+                                applications.
+                            </span>
+                        </div>
+
+                        <div class="about-point">
+                            <strong>🔬 Applied Intelligence</strong>
+                            <span>
+                                Experience different machine learning
+                                and deep learning techniques.
+                            </span>
+                        </div>
+
+                        <div class="about-point">
+                            <strong>🌐 Unified Experience</strong>
+                            <span>
+                                Access multiple independently hosted
+                                applications from one website.
+                            </span>
+                        </div>
+
+                        <div class="about-point">
+                            <strong>🚀 Continuous Innovation</strong>
+                            <span>
+                                Build a foundation for exploring new
+                                AI ideas and applications.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-content">
+
+                <a href="#home" class="logo">
+                    TATTVA<span> AI</span>
+                </a>
+
+                <p>
+                    Discover Intelligence. Experience Innovation.
+                </p>
+
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#about">About</a>
+                    <a
+                        href="https://github.com/pillakomal15-cloud/TATTVA-AI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub ↗
+                    </a>
+                </div>
+
+            </div>
+
+            <p style="margin-top: 22px; text-align: center;">
+                © <span id="year"></span> TATTVA AI.
+                Built to explore the possibilities of artificial intelligence.
             </p>
 
-            <span class="status live">
-                ● Application deployed
-            </span>
-
-            <a
-                href="https://deep-learning-projects-bcfjve9ppjgsqq87mhrpy.streamlit.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-            >
-                Launch Application ↗
-            </a>
-
-        </article>
+        </div>
+    </footer>
 
 
-        <!-- PROJECT 2: SENTIMENT ANALYSIS -->
-
-        <article class="card">
-
-            <div class="icon">💬</div>
-
-            <h3>Sentiment Analysis</h3>
-
-            <p>
-                Analyse text and classify its sentiment as
-                positive or negative using natural language
-                processing.
-            </p>
-
-            <span class="status pending">
-                ● Application link to verify
-            </span>
-
-            <a
-                href="#"
-                class="project-link disabled-link"
-                aria-disabled="true"
-                onclick="return false;"
-            >
-                Application coming soon
-            </a>
-
-        </article>
-
-
-        <!-- PROJECT 3: IMAGE CLASSIFICATION -->
-
-        <article class="card">
-
-            <div class="icon">🖼️</div>
-
-            <h3>Image Classification</h3>
-
-            <p>
-                Upload an image and explore image recognition
-                using a pretrained deep-learning model.
-            </p>
-
-            <span class="status pending">
-                ● Application link pending
-            </span>
-
-            <a
-                href="#"
-                class="project-link disabled-link"
-                aria-disabled="true"
-                onclick="return false;"
-            >
-                Application coming soon
-            </a>
-
-        </article>
-
-
-        <!-- PROJECT 4: OCR -->
-
-        <article class="card">
-
-            <div class="icon">📝</div>
-
-            <h3>Handwriting-to-Text OCR</h3>
-
-            <p>
-                Extract readable text from uploaded handwriting
-                images using optical character recognition.
-            </p>
-
-            <span class="status pending">
-                ● Application link pending
-            </span>
-
-            <a
-                href="#"
-                class="project-link disabled-link"
-                aria-disabled="true"
-                onclick="return false;"
-            >
-                Application coming soon
-            </a>
-
-        </article>
-
-
-        <!-- PROJECT 5: STOCKSENSE AI -->
-
-        <article class="card">
-
-            <div class="icon">📈</div>
-
-            <h3>StockSense AI</h3>
-
-            <p>
-                Explore historical stock prices, technical
-                indicators, and experimental machine-learning
-                forecasts.
-            </p>
-
-            <span class="status pending">
-                ● Application link pending
-            </span>
-
-            <a
-                href="#"
-                class="project-link disabled-link"
-                aria-disabled="true"
-                onclick="return false;"
-            >
-                Application coming soon
-            </a>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<section class="about" id="about">
-
-    <h2>About TATTVA AI</h2>
-
-    <p>
-        TATTVA AI is a unified hub for exploring artificial
-        intelligence and deep-learning applications. It brings
-        together projects in handwritten digit recognition,
-        sentiment analysis, computer vision, optical character
-        recognition, and financial data analytics. Each project
-        is designed as an independent application that can be
-        accessed through this central platform as its deployment
-        becomes available.
-    </p>
-
-</section>
-
-</main>
-
-
-<footer>
-    <span>© 2026 TATTVA AI</span>
-    <span>Discover Intelligence. Experience Innovation.</span>
-</footer>
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 
 </body>
 </html>
