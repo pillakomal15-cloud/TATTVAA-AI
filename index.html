@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TATTVA AI | Intelligent Applications</title>
+
+<meta name="description" content="TATTVA AI is a unified platform showcasing intelligent applications in deep learning, computer vision, NLP, OCR, and predictive analytics.">
 
 <style>
 :root {
@@ -11,7 +14,7 @@
     --panel: #101827;
     --border: #243249;
     --text: #f4f7fb;
-    --muted: #9aa9bd;
+    --muted: #a3b2c7;
     --teal: #36e0c0;
     --purple: #a78bfa;
 }
@@ -22,11 +25,19 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: Inter, Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
+}
+
+a {
+    transition: 0.2s ease;
 }
 
 header {
@@ -35,22 +46,29 @@ header {
     align-items: center;
     padding: 22px 8%;
     border-bottom: 1px solid var(--border);
+    background: rgba(8, 12, 22, 0.96);
 }
 
 .logo {
     font-size: 25px;
     font-weight: 800;
     letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--text);
 }
 
 .logo span {
     color: var(--teal);
 }
 
+nav {
+    display: flex;
+    gap: 25px;
+}
+
 nav a {
     color: var(--muted);
     text-decoration: none;
-    margin-left: 25px;
     font-size: 14px;
 }
 
@@ -59,11 +77,14 @@ nav a:hover {
 }
 
 .hero {
-    padding: 100px 8% 75px;
+    padding: 110px 8% 95px;
     text-align: center;
     background:
-        radial-gradient(ellipse at 50% 0%,
-        rgba(54,224,192,.12), transparent 60%);
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(54, 224, 192, 0.13),
+            transparent 62%
+        );
 }
 
 .badge {
@@ -74,12 +95,12 @@ nav a:hover {
     color: var(--teal);
     font-size: 12px;
     letter-spacing: 1.5px;
-    margin-bottom: 25px;
+    margin-bottom: 27px;
 }
 
 .hero h1 {
     font-size: clamp(42px, 7vw, 76px);
-    line-height: 1.1;
+    line-height: 1.12;
     margin-bottom: 25px;
     letter-spacing: -2px;
 }
@@ -92,7 +113,7 @@ nav a:hover {
 }
 
 .hero p {
-    max-width: 680px;
+    max-width: 700px;
     margin: auto;
     color: var(--muted);
     font-size: 17px;
@@ -108,7 +129,7 @@ nav a:hover {
 
 .button {
     display: inline-block;
-    padding: 13px 23px;
+    padding: 13px 24px;
     border-radius: 9px;
     text-decoration: none;
     font-weight: 700;
@@ -120,13 +141,23 @@ nav a:hover {
     color: #07121a;
 }
 
+.primary:hover {
+    background: #76f5dc;
+    transform: translateY(-2px);
+}
+
 .secondary {
     color: var(--text);
     border: 1px solid var(--border);
 }
 
+.secondary:hover {
+    border-color: var(--teal);
+}
+
 .section {
-    padding: 45px 8% 85px;
+    padding: 55px 8% 90px;
+    scroll-margin-top: 20px;
 }
 
 .section-heading {
@@ -138,7 +169,8 @@ nav a:hover {
 }
 
 .section-heading h2 {
-    font-size: 32px;
+    font-size: 34px;
+    margin-bottom: 5px;
 }
 
 .section-heading p {
@@ -149,18 +181,18 @@ nav a:hover {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 22px;
 }
 
 .card {
     background: linear-gradient(145deg, #111c2d, #0c1321);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 25px;
-    transition: transform .25s, border-color .25s;
+    border-radius: 17px;
+    padding: 27px;
+    transition: transform 0.25s, border-color 0.25s;
     display: flex;
     flex-direction: column;
-    min-height: 260px;
+    min-height: 300px;
 }
 
 .card:hover {
@@ -169,19 +201,19 @@ nav a:hover {
 }
 
 .icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
     display: grid;
     place-items: center;
-    font-size: 24px;
+    font-size: 25px;
     background: #192a3b;
     margin-bottom: 20px;
 }
 
 .card h3 {
     font-size: 19px;
-    margin-bottom: 10px;
+    margin-bottom: 11px;
 }
 
 .card p {
@@ -190,36 +222,56 @@ nav a:hover {
     flex-grow: 1;
 }
 
-.card a {
-    margin-top: 22px;
+.status {
+    display: inline-block;
+    margin-top: 17px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.live {
+    color: var(--teal);
+}
+
+.pending {
+    color: #fbbf24;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 20px;
     color: var(--teal);
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
 }
 
-.status {
-    display: inline-block;
-    color: #fbbf24;
-    font-size: 11px;
-    margin-top: 12px;
+.project-link:hover {
+    color: #ffffff;
+}
+
+.disabled-link {
+    color: var(--muted);
+    cursor: default;
 }
 
 .about {
-    margin: 0 8% 80px;
-    padding: 35px;
+    margin: 0 8% 85px;
+    padding: 38px;
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 17px;
     background: var(--panel);
+    scroll-margin-top: 25px;
 }
 
 .about h2 {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+    font-size: 29px;
 }
 
 .about p {
     color: var(--muted);
-    max-width: 850px;
+    max-width: 900px;
 }
 
 footer {
@@ -233,7 +285,7 @@ footer {
     font-size: 13px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .project-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -242,32 +294,53 @@ footer {
 @media (max-width: 600px) {
     header {
         padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
-    nav a {
-        margin-left: 10px;
-        font-size: 12px;
+    .logo {
+        font-size: 22px;
+    }
+
+    nav {
+        gap: 15px;
     }
 
     .hero {
-        padding: 75px 6% 55px;
+        padding: 75px 6% 60px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
     }
 
     .section {
-        padding: 35px 6% 60px;
+        padding: 40px 6% 60px;
     }
 
     .section-heading {
         display: block;
     }
 
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
     .project-grid {
         grid-template-columns: 1fr;
     }
 
+    .card {
+        min-height: 270px;
+    }
+
     .about {
-        margin: 0 6% 50px;
+        margin: 0 6% 55px;
         padding: 25px;
+    }
+
+    footer {
+        padding: 25px 6%;
     }
 }
 </style>
@@ -276,9 +349,9 @@ footer {
 <body>
 
 <header>
-    <div class="logo">TATTVA<span> AI</span></div>
+    <a href="#home" class="logo">TATTVA<span> AI</span></a>
 
-    <nav>
+    <nav aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
@@ -286,9 +359,12 @@ footer {
 </header>
 
 <main>
+
 <section class="hero" id="home">
 
-    <div class="badge">ARTIFICIAL INTELLIGENCE · MACHINE LEARNING</div>
+    <div class="badge">
+        ARTIFICIAL INTELLIGENCE · DEEP LEARNING
+    </div>
 
     <h1>
         Discover Intelligence.<br>
@@ -296,109 +372,209 @@ footer {
     </h1>
 
     <p>
-        One unified platform to explore intelligent applications
-        in computer vision, natural language processing,
-        handwriting recognition and predictive analytics.
+        Explore intelligent applications for computer vision,
+        natural language processing, handwriting recognition,
+        and predictive analytics — all in one unified platform.
     </p>
 
     <div class="hero-buttons">
-        <a href="#projects" class="button primary">Explore Projects ↗</a>
-        <a href="#about" class="button secondary">About TATTVA AI</a>
+        <a href="#projects" class="button primary">
+            Explore Projects ↗
+        </a>
+
+        <a href="#about" class="button secondary">
+            About TATTVA AI
+        </a>
     </div>
 
 </section>
+
 
 <section class="section" id="projects">
 
     <div class="section-heading">
         <div>
             <h2>Explore Our Projects</h2>
-            <p>Five applications. Different possibilities. One ecosystem.</p>
+            <p>
+                Five applications. Different possibilities.
+                One ecosystem.
+            </p>
         </div>
     </div>
 
     <div class="project-grid">
 
+        <!-- PROJECT 1: MNIST -->
+
         <article class="card">
+
             <div class="icon">✍️</div>
+
             <h3>Handwritten Digit Recognition</h3>
-            <p>
-                Recognise handwritten digits using a trained
-                neural network and image-processing techniques.
-            </p>
-            <span class="status">● Application link pending</span>
-            <a href="#" class="project-link">Application coming soon ↗</a>
-        </article>
 
-        <article class="card">
-            <div class="icon">💬</div>
-            <h3>Sentiment Analysis</h3>
             <p>
-                Analyse written text and classify its sentiment
-                using natural language processing.
+                Recognise handwritten digits from 0 to 9 using
+                a trained neural network and image-processing
+                techniques.
             </p>
-            <span class="status" style="color:#36e0c0;">
-    ● Application live
-</span>
+
+            <span class="status live">
+                ● Application deployed
+            </span>
+
             <a
-    href="https://deep-learning-projects-bcfjve9ppjgsqq87mhrpy.streamlit.app"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="project-link"
->
-    Launch Application ↗
-</a>
+                href="https://deep-learning-projects-bcfjve9ppjgsqq87mhrpy.streamlit.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+            >
+                Launch Application ↗
+            </a>
+
         </article>
 
+
+        <!-- PROJECT 2: SENTIMENT ANALYSIS -->
+
         <article class="card">
-            <div class="icon">🖼️</div>
-            <h3>Image Classification</h3>
+
+            <div class="icon">💬</div>
+
+            <h3>Sentiment Analysis</h3>
+
             <p>
-                Explore image recognition using a pretrained
-                deep-learning model.
+                Analyse text and classify its sentiment as
+                positive or negative using natural language
+                processing.
             </p>
-            <span class="status">● Application link pending</span>
-            <a href="#" class="project-link">Application coming soon ↗</a>
+
+            <span class="status pending">
+                ● Application link to verify
+            </span>
+
+            <a
+                href="#"
+                class="project-link disabled-link"
+                aria-disabled="true"
+                onclick="return false;"
+            >
+                Application coming soon
+            </a>
+
         </article>
 
+
+        <!-- PROJECT 3: IMAGE CLASSIFICATION -->
+
         <article class="card">
+
+            <div class="icon">🖼️</div>
+
+            <h3>Image Classification</h3>
+
+            <p>
+                Upload an image and explore image recognition
+                using a pretrained deep-learning model.
+            </p>
+
+            <span class="status pending">
+                ● Application link pending
+            </span>
+
+            <a
+                href="#"
+                class="project-link disabled-link"
+                aria-disabled="true"
+                onclick="return false;"
+            >
+                Application coming soon
+            </a>
+
+        </article>
+
+
+        <!-- PROJECT 4: OCR -->
+
+        <article class="card">
+
             <div class="icon">📝</div>
+
             <h3>Handwriting-to-Text OCR</h3>
+
             <p>
                 Extract readable text from uploaded handwriting
                 images using optical character recognition.
             </p>
-            <span class="status">● Application link pending</span>
-            <a href="#" class="project-link">Application coming soon ↗</a>
+
+            <span class="status pending">
+                ● Application link pending
+            </span>
+
+            <a
+                href="#"
+                class="project-link disabled-link"
+                aria-disabled="true"
+                onclick="return false;"
+            >
+                Application coming soon
+            </a>
+
         </article>
 
+
+        <!-- PROJECT 5: STOCKSENSE AI -->
+
         <article class="card">
+
             <div class="icon">📈</div>
+
             <h3>StockSense AI</h3>
+
             <p>
-                Explore historical stock data, technical indicators
-                and experimental machine-learning forecasts.
+                Explore historical stock prices, technical
+                indicators, and experimental machine-learning
+                forecasts.
             </p>
-            <span class="status">● Application link pending</span>
-            <a href="#" class="project-link">Application coming soon ↗</a>
+
+            <span class="status pending">
+                ● Application link pending
+            </span>
+
+            <a
+                href="#"
+                class="project-link disabled-link"
+                aria-disabled="true"
+                onclick="return false;"
+            >
+                Application coming soon
+            </a>
+
         </article>
 
     </div>
+
 </section>
 
+
 <section class="about" id="about">
+
     <h2>About TATTVA AI</h2>
+
     <p>
-        TATTVA AI is an AI project hub designed to provide a unified
-        entry point to independent intelligent applications.
-        The platform brings together demonstrations of computer
-        vision, natural language processing, optical character
-        recognition and financial data analytics.
-        Each project will be connected to its own working application
-        as development and deployment are completed.
+        TATTVA AI is a unified hub for exploring artificial
+        intelligence and deep-learning applications. It brings
+        together projects in handwritten digit recognition,
+        sentiment analysis, computer vision, optical character
+        recognition, and financial data analytics. Each project
+        is designed as an independent application that can be
+        accessed through this central platform as its deployment
+        becomes available.
     </p>
+
 </section>
+
 </main>
+
 
 <footer>
     <span>© 2026 TATTVA AI</span>
